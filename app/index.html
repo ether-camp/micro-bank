@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MicroBank</title>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet">
+  <!--        
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/animations.css">
+-->
+</head>
+
+<body ng-app="mbApp">
+
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/">MicroBank</a>
+      </div>
+
+      <div class="collapse navbar-collapse" ng-controller="AuthController">
+
+        <ul class="nav navbar-nav" ng-hide="isAnonymous">
+          <li class="active"><a href="#/{{accountType}}s/{{address}}">Home</a></li>
+          <li><a href="#/creditors">Creditors</a></li>
+          <li><a href="#/debtors">Debtors</a></li>
+        </ul>
+
+
+        <form class="navbar-form navbar-right" role="form">
+          <div class="form-group" ng-show="isAnonymous">
+            <input ng-model="seed" type="password" class="form-control" placeholder="Input seed phrase ...">
+          </div>
+          <button class="btn" ng-class="isAnonymous ? 'btn-success' : 'hide'" ng-click="login()">Sign in</button>
+          <button class="btn" ng-class="isAnonymous ? 'hide' : 'btn-success'" ng-click="logout()">Log out</button>
+        </form>
+      </div>
+      <!--/.navbar-collapse -->
+
+    </div>
+  </div>
+
+
+  <div ng-view class="view-frame"></div>
+
+
+
+
+  <!-- Common libs -->
+  <script src="lib/underscore/underscore-min.js"></script>
+  <script src="lib/bignumber.js/bignumber.js"></script>
+  <script src="lib/moment/min/moment.min.js"></script>
+  
+  <!--<script src="lib/web3/dist/web3-light.js"></script>-->
+  <script src="lib/custom/web3-light.js"></script>
+  <script src="lib/custom/eth-utils.js"></script>
+  <script src="lib/custom/func.js"></script>
+
+  <!-- Angular libs -->
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular-route/angular-route.min.js"></script>
+  <script src="lib/angular-resource/angular-resource.min.js"></script>
+  <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+  <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+  <!-- MicroBank app modules -->
+  <script src="js/app.js"></script>
+  <script src="js/routes.js"></script>
+
+  <!-- MicroBank constants -->
+  <script src="js/constants/app.const.js"></script>
+  <script src="js/constants/web3.const.js"></script>
+  <script src="js/constants/contract.const.js"></script>
+
+  <!-- MicroBank services -->
+  <script src="js/services/web3.service.js"></script>
+  <script src="js/services/auth.service.js"></script>
+  <script src="js/services/registration.service.js"></script>
+  <script src="js/services/contract.service.js"></script>
+  <script src="js/services/admin.service.js"></script>
+  <script src="js/services/permission.service.js"></script>
+  <script src="js/services/stat.service.js"></script>
+  <script src="js/services/event.service.js"></script>
+
+  <script src="js/services/microBank.service.js"></script>
+  <script src="js/services/debtor.service.js"></script>
+  <script src="js/services/creditor.service.js"></script>
+  <script src="js/services/trade.service.js"></script>
+
+  <!-- MicroBank controllers -->
+  <script src="js/controllers/auth.controller.js"></script>
+  <script src="js/controllers/main.controllerl.js"></script>
+  <script src="js/controllers/dashboard.controller.js"></script>
+  <script src="js/controllers/registration.controller.js"></script>
+
+  <script src="js/controllers/debtor.controller.js"></script>
+  <script src="js/controllers/debtors-list.controller.js"></script>
+  <script src="js/controllers/ask.controller.js"></script>
+
+  <script src="js/controllers/creditor.controller.js"></script>
+  <script src="js/controllers/creditors-list.controller.js"></script>
+
+</body>
+
+</html>

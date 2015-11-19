@@ -1,0 +1,65 @@
+<div class="container mb-page">
+
+    <div class="row">
+        <div class="col-md-2 text-center">
+            <div class="panel panel-primary">
+                <div data-toggle="tooltip" data-placement="top" title="" class="panel-heading" data-original-title="Uncles per block over the last 64 blocks">
+                    <h3 class="panel-title">Creditors</h3>
+                </div>
+                <div class="panel-body">
+                    <h4>{{creditorsCount}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Deals</h3></div>
+                <div class="panel-body">
+                    <h4 data-bind="text: txCount">0</h4></div>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div data-toggle="tooltip" data-placement="top" title="" class="panel panel-success" data-original-title="Average block time over the last 24 hours">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Bids</h3></div>
+                <div class="panel-body">
+                    <h4 data-bind="text: blockTime">0 | 0</h4></div>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div data-toggle="tooltip" data-placement="top" title="" class="panel panel-danger" data-original-title="Average hash rate over the last 24 hours">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Asks</h3></div>
+                <div class="panel-body">
+                    <h4 data-bind="text: hashRate">{{asksCount}} | {{asksAmount}} Eth</h4></div>
+            </div>
+        </div>
+
+        <div class="col-md-2 text-center">
+            <div data-toggle="tooltip" data-placement="top" title="" class="panel panel-info" data-original-title="Average difficulty over the last 24 hours">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Average %</h3></div>
+                <div class="panel-body">
+                    <h4 data-bind="text: difficulty">0</h4></div>
+            </div>
+        </div>
+
+        <div data-toggle="tooltip" data-placement="top" title="" class="col-md-2 text-center" data-original-title="Ethereum price in USD and BTC">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Debtors</h3></div>
+                <div class="panel-body">
+                    <h4>{{debtorsCount}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+    <footer>
+        <p>© Company 2015</p>
+    </footer>
+</div>

@@ -1,0 +1,78 @@
+<div class="mb-page container">
+    <div class="page-header">
+        <h1>{{debtor.nickname}} 
+            <small class="ng-binding mono" uib-tooltip="Your Ethereum account address" tooltip-placement = "right" tooltip-trigger="mouseenter">
+                "{{debtor.address}}"
+            </small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center"><em>Identity</em></h3>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <td>First name:</td>
+                        <td>{{debtor.firstName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Last name:</td>
+                        <td>{{debtor.lastName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Facebook:</td>
+                        <td><a href="{{debtor.facebook}}">{{debtor.facebook}}</a></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><a href="mailto:{{debtor.email}}">{{debtor.email}}</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center"><em>Asks</em></h3>
+                </div>
+
+                <table class="table table-hover" ng-show="asks">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Bids</th>
+                            <th>Amount</th>
+                            <th>Duration</th>
+                            <th>Created</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- active success warning danger -->
+                        <tr ng-repeat="ask in asks">
+                            <td>
+                                <a href="#/debtors/{{ask.debtor}}/asks/{{ask.id}}">{{ask.id}}</a>
+                            </td>
+                            <td><span class="badge">{{ ask.bidsCount }}</span></td>
+                            <td>{{ ask.amount }} Ether</td>
+                            <td>{{ ask.creditDays }} days</td>
+                            <td>{{ ask.creationTime.fromNow() }}</td>
+                            <td>
+                                <span ng-click="cancelAsk(ask)" class="glyphicon glyphicon-remove" uib-tooltip="remove ask" tooltip-placement="top" tooltip-trigger="mouseenter"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <div class="panel-footer text-center">
+                    <a type="button" class="btn btn-primary" ng-click="addAsk()">Add new</a>
+                </div>
+            </div>
+        </div>
+
+    </div>

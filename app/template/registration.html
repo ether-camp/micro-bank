@@ -1,0 +1,144 @@
+<div class="container">
+    <div class="page-header">
+        <h1>An account registration 
+            <small class="ng-binding mono" uib-tooltip="Your Ethereum account address" tooltip-placement = "right" tooltip-trigger="mouseenter">
+                "{{address}}"
+            </small>
+        </h1>
+    </div>
+    <br>
+    <br>
+
+    <form name="microbank" class="form-horizontal">
+        <fieldset>
+            <legend>MicroBank identity</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nickname">Nickname</label>
+
+                <div class="col-md-4">
+                    <input id="nickname" ng-model="nickname.value" ng-pattern="nickname.pattern" required type="text" placeholder="DucksInc" class="form-control input-md">
+                    <span class="help-block">Your publicity name (sets only ONCE)</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password">Password</label>
+
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input id="password" ng-model="seed.value" required type="{{seed.type}}" placeholder="the most secret word" class="form-control input-md">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="toggleSeedType()">
+                            <span class="glyphicon" ng-class="{'glyphicon-eye-open': seed.type == 'text', 'glyphicon-eye-close': seed.type == 'password'}"></span>
+                        </button>
+                        </span>
+                    </div>
+                    <span class="help-block">Seed phrase of your Ethereum account</span>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+    <form name="creditor" class="form-horizontal" ng-show="creditorRegistration">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Personal info</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="firstName">First name</label>
+
+                <div class="col-md-4">
+                    <input id="firstName" ng-model="firstName.value" type="text" placeholder="Donald" class="form-control input-md">
+                    <span class="help-block">Your real first name</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="lastName">Last name</label>
+
+                <div class="col-md-4">
+                    <input id="lastName" ng-model="lastName.value" type="text" placeholder="Duck" class="form-control input-md">
+                    <span class="help-block">Your real last name</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="desc">Description</label>
+
+                <div class="col-md-4">
+                    <textarea id="desc" ng-model="desc.value" placeholder="The richest Duck of the world !" class="form-control" rows="3"></textarea>
+                    <span class="help-block">Couple words about yourself</span>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+    <form name="debtor" class="form-horizontal" ng-show="debtorRegistration">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Personal info</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="firstName">First name</label>
+
+                <div class="col-md-4">
+                    <input id="firstName" ng-model="firstName.value" type="text" placeholder="John" class="form-control input-md">
+                    <span class="help-block">Your real first name</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="lastName">Last name</label>
+
+                <div class="col-md-4">
+                    <input id="lastName" ng-model="lastName.value" type="text" placeholder="Doe" class="form-control input-md">
+                    <span class="help-block">Your real last name</span>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+    <form name="social" class="form-horizontal" ng-show="debtorRegistration">
+        <fieldset>
+            <legend>Social identity</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="facebook">Facebook</label>
+
+                <div class="col-md-4">
+                    <input ng-model="facebook.value" ng-pattern="facebook.pattern" id="facebook" type="text" class="form-control input-md" placeholder="https://www.facebook.com/john.doe">
+                    <span class="help-block">Facebook account URL</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="email">Email</label>
+
+                <div class="col-md-4">
+                    <input id="email" ng-model="email.value" ng-pattern="email.pattern" type="text" placeholder="john.doe@mail.com" class="form-control input-md">
+                    <span class="help-block">Your personal email</span>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-4 col-md-4">
+            <button class="col-md-5 btn" ng-click="initTestData()">Set test data</button>
+            <button class="col-md-5 col-md-offset-2 btn btn-primary" ng-class="{'disabled': unavailiable()}" ng-click="register()">Register</button>
+        </div>
+    </div>
+
+
+</div>

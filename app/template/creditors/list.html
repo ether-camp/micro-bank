@@ -1,0 +1,14 @@
+<div class="mb-page container">
+    <div class="page-header">
+        <h1>Creditors list <small>{{creditors.length}} active creditors</small></h1>
+    </div>
+    <div class="row">
+
+         <ul class="list-group col-md-4 col-md-offset-4">
+        
+            <li href="#" class="list-group-item" ng-repeat="creditor in creditors">
+                <a href="#/creditors/{{ creditor.address }}">{{ creditor.nickname }}</a>
+            </li>
+        </ul>
+    </div>
+</div>
