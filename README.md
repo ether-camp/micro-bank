@@ -10,6 +10,7 @@ rm -rf .git
 git init .
 git remote add  origin  https://github.com/ether-camp/micro-bank.contracts
 git checkout origin/master
+git fetch
 
 git clone https://github.com/ether-camp/micro-bank
 ```
