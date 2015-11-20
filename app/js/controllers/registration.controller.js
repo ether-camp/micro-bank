@@ -30,6 +30,7 @@
         var accountType = $routeParams.accountType;
         var auth = null;
         var registration = false;
+        $scope.alert = { show:false, text:"" }; // set alert
 
         _.extend($scope, {
             accountType: accountType,
@@ -98,10 +99,16 @@
                     break;
             }
 
+            $scope.alert.show = false; // hide alert
             registration = true;
             regService.register(accountType, auth, accountData)
                 .then(function() {
                     $location.url('/' + accountType + 's/' + auth.address);
+                }, function(error) {
+                    console.log(error);
+                    // show alert
+                    $scope.alert.show = true;
+                    $scope.alert.text = (error && error.message) ? error.message : "Unknown";
                 })
                 .finally(function() {
                     registration = false;
